@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cr8efyhpd0i88"]
+
+[ext_resource type="Script" uid="uid://bbic483i4k6mi" path="res://scenes/projectiles/laser.gd" id="1_e6ads"]
+[ext_resource type="Texture2D" uid="uid://dgmqycgiegxe0" path="res://graphics/projectiles/blue.png" id="1_rlgyd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e6ads"]
+radius = 5.0
+height = 80.0
+
+[node name="Laser" type="Area2D" unique_id=1551637074]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_e6ads")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=572832921]
+position = Vector2(0, 41)
+texture = ExtResource("1_rlgyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=865388531]
+shape = SubResource("CapsuleShape2D_e6ads")
+
+[node name="ExpireTimer" type="Timer" parent="." unique_id=920285310]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ExpireTimer" to="." method="_on_expire_timer_timeout"]

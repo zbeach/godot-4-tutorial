@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://k74m77hbeb2d"]
+
+[ext_resource type="Script" uid="uid://c8e3pp8ot1p22" path="res://scenes/player/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bi631fvh01s44" path="res://graphics/player/player.png" id="1_g2h2n"]
+[ext_resource type="Texture2D" uid="uid://dyw6dwvc4lcyd" path="res://graphics/decals/white.png" id="3_qhqgy"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qhqgy"]
+polygon = PackedVector2Array(-59, -38, -59, -29, -60, -18, -58, -9, -53, -4, -52, 0, -52, 6, -47, 13, -43, 15, -39, 24, -34, 36, -24, 41, -13, 41, -6, 40, 1, 40, 11, 35, 19, 31, 26, 28, 37, 26, 43, 20, 48, 22, 58, 22, 59, 29, 63, 34, 76, 34, 94, 33, 96, 30, 97, 25, 102, 23, 108, 16, 112, 18, 123, 18, 123, 15, 122, 13, 124, 13, 126, 14, 128, 14, 131, 11, 133, 7, 134, 1, 133, -5, 132, -9, 131, -11, 129, -14, 126, -13, 124, -11, 123, -11, 124, -13, 124, -16, 123, -18, 119, -17, 111, -18, 110, -21, 108, -23, 105, -23, 102, -23, 98, -24, 96, -25, 90, -29, 86, -31, 83, -30, 78, -29, 74, -31, 68, -38, 58, -48, 54, -49, 51, -49, 49, -50, 44, -57, 45, -59, 44, -61, 40, -65, 36, -68, 35, -70, 30, -77, 26, -80, 21, -81, 16, -80, 12, -79, 9, -78, 4, -79, -3, -79, -7, -77, -12, -75, -14, -77, -17, -77, -22, -74, -27, -71, -28, -69, -28, -67, -31, -66, -35, -67, -40, -66, -44, -64, -49, -60, -52, -56, -53, -53, -54, -50, -57, -46, -59, -42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 61.0
+
+[sub_resource type="Gradient" id="Gradient_qhqgy"]
+colors = PackedColorArray(0.61960787, 0.8901961, 1, 0.7647059, 0.61960787, 0.8901961, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dqkch"]
+gradient = SubResource("Gradient_qhqgy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g2els"]
+particle_flag_disable_z = true
+spread = 12.0
+initial_velocity_min = 717.57996
+initial_velocity_max = 956.82996
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+color = Color(0.61960787, 0.8901961, 1, 0.627451)
+color_ramp = SubResource("GradientTexture1D_dqkch")
+
+[node name="Player" type="CharacterBody2D" unique_id=1741855016]
+collision_mask = 31
+script = ExtResource("1_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1055889095]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
+[node name="PlayerImage" type="Sprite2D" parent="." unique_id=2039374247]
+position = Vector2(37, -19)
+rotation = 1.5707964
+texture = ExtResource("1_g2h2n")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1900456830]
+occluder = SubResource("OccluderPolygon2D_qhqgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501773880]
+position = Vector2(0, -19)
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="LaserTimer" type="Timer" parent="." unique_id=1681362169]
+wait_time = 0.5
+one_shot = true
+
+[node name="GrenadeTimer" type="Timer" parent="." unique_id=1037627307]
+wait_time = 2.0
+one_shot = true
+
+[node name="ProjectileStartPositions" type="Node2D" parent="." unique_id=1559354672]
+
+[node name="Marker2D" type="Marker2D" parent="ProjectileStartPositions" unique_id=1104003008]
+position = Vector2(133, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="ProjectileStartPositions" unique_id=65669438]
+position = Vector2(129, 9)
+
+[node name="Marker2D3" type="Marker2D" parent="ProjectileStartPositions" unique_id=78493603]
+position = Vector2(130, -9)
+
+[node name="Blast" type="GPUParticles2D" parent="." unique_id=661587042]
+position = Vector2(124, 0)
+emitting = false
+amount = 20
+texture = ExtResource("3_qhqgy")
+lifetime = 0.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_g2els")
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]

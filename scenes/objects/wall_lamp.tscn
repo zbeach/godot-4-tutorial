@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cb5w03awyqh7w"]
+
+[ext_resource type="Texture2D" uid="uid://dcx0yaaybrwi2" path="res://graphics/objects/wall_lamp.png" id="1_2l47e"]
+[ext_resource type="Texture2D" uid="uid://kllr84ivw5oo" path="res://graphics/lights/textures/circle.png" id="2_o1l1r"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o1l1r"]
+polygon = PackedVector2Array(-288, -77, -309, -75, -340, -64, -375, -39, -413, 4, -420, 17, -393, 76, -263, 74, -257, 80, -239, 84, -228, 79, -211, 78, 226, 78, 237, 82, 241, 82, 250, 81, 266, 76, 369, 77, 380, 77, 385, 74, 390, 72, 394, 72, 418, 16, 406, -2, 373, -42, 334, -69, 296, -79, 280, -78, 254, -65, 253, -44, 254, -30, 275, -26, 302, -18, 331, -4, 350, 16, 369, 42, 378, 61, 230.99854, 60.99997, 181.41174, 60.99997, -261, 61, -377, 61, -373, 48, -362, 31, -340, 6, -324, -6, -288, -22, -262, -30, -255, -28, -258, -65, -271, -71)
+
+[node name="WallLamp" type="StaticBody2D" unique_id=62914903]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=199205476]
+polygon = PackedVector2Array(-369, -43, -348, -60, -310, -75, -287, -78, -285, -83, 276, -82, 280, -78, 295, -78, 317, -73, 343, -63, 365, -47, 386, -24, 409, 3, 418, 16, 402, 54, 394, 71, 388, 72, 380, 76, 368, 77, 266, 76, 247, 81, 237, 82, 229, 79, 226, 77, -220, 77, -230, 79, -239, 83, -256, 80, -261, 75, -263, 74, -391, 74, -397, 67, -400, 60, -418, 15, -407, 0, -392, -18, -382, -31)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1227637693]
+texture = ExtResource("1_2l47e")
+region_enabled = true
+region_rect = Rect2(0, 0, 837.65015, 166.7044)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1216703992]
+color = Color(0.50666976, 0.66711545, 0.9524701, 1)
+energy = 6.8
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = ExtResource("2_o1l1r")
+texture_scale = 3.18
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2079788245]
+occluder = SubResource("OccluderPolygon2D_o1l1r")

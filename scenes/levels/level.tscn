@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://7k048776ywi8"]
+
+[ext_resource type="Script" uid="uid://cyl8os4e0cxua" path="res://scenes/levels/level.gd" id="1_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://k74m77hbeb2d" path="res://scenes/player.tscn" id="4_xb4v1"]
+
+[node name="Level" type="Node2D" unique_id=1522788901]
+script = ExtResource("1_b2cq8")
+
+[node name="Ground" type="Node2D" parent="." unique_id=1557640071]
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=729131776]
+
+[node name="Player" parent="." unique_id=1730883550 instance=ExtResource("4_xb4v1")]
+position = Vector2(571, 569)
+
+[node name="Lights" type="Node2D" parent="." unique_id=106342385]
+
+[connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]

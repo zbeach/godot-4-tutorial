@@ -1,0 +1,138 @@
+[gd_scene format=4 uid="uid://dodmoqtsgy0gv"]
+
+[ext_resource type="PackedScene" uid="uid://7k048776ywi8" path="res://scenes/levels/level.tscn" id="1_2s4ok"]
+[ext_resource type="Texture2D" uid="uid://cirjxo05yas1p" path="res://graphics/ground/stones.png" id="2_qvsb0"]
+[ext_resource type="PackedScene" uid="uid://r86gyur27sym" path="res://scenes/objects/gate.tscn" id="2_x73sx"]
+[ext_resource type="Script" uid="uid://botf7xkw0gfw0" path="res://scenes/levels/outside.gd" id="2_xqqjy"]
+[ext_resource type="Texture2D" uid="uid://c8etjj3bnjcp0" path="res://graphics/tilesets/outside_walls.png" id="3_xqqjy"]
+[ext_resource type="Texture2D" uid="uid://bgqfxogfsgswk" path="res://graphics/tilesets/soil.png" id="4_ex6t8"]
+[ext_resource type="Texture2D" uid="uid://cr8sd78mkvycw" path="res://graphics/decals/dirt_patch.png" id="5_x30qc"]
+[ext_resource type="Texture2D" uid="uid://bwu363elg56s1" path="res://graphics/decals/moss/moss_1.png" id="6_uaeil"]
+[ext_resource type="Texture2D" uid="uid://bwyki2wwm2ril" path="res://graphics/decals/moss/moss_3.png" id="7_bjulg"]
+[ext_resource type="Texture2D" uid="uid://tohbji1o257r" path="res://graphics/decals/moss/moss_5.png" id="8_gd7nx"]
+[ext_resource type="Texture2D" uid="uid://cq7oqhxds6nkr" path="res://graphics/decals/moss/moss_4.png" id="9_4lnny"]
+[ext_resource type="PackedScene" uid="uid://bk4avva3rgh0s" path="res://scenes/places/house.tscn" id="10_cnio0"]
+[ext_resource type="PackedScene" uid="uid://b8jhnjgkdkgle" path="res://scenes/objects/steam_vent.tscn" id="11_6u4a0"]
+[ext_resource type="PackedScene" uid="uid://dgsj53kalur3n" path="res://scenes/objects/light_fan_animation.tscn" id="12_oe17f"]
+[ext_resource type="PackedScene" uid="uid://dwwvilopg1h40" path="res://scenes/objects/toilet.tscn" id="15_ex6t8"]
+[ext_resource type="PackedScene" uid="uid://tlseai7t3s34" path="res://scenes/objects/crate.tscn" id="16_x30qc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbwx5"]
+resource_name = "walls"
+texture = ExtResource("3_xqqjy")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddemh"]
+resource_name = "soil"
+texture = ExtResource("4_ex6t8")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vkmey"]
+tile_size = Vector2i(390, 390)
+sources/0 = SubResource("TileSetAtlasSource_lbwx5")
+sources/1 = SubResource("TileSetAtlasSource_ddemh")
+
+[node name="Outside" unique_id=1522788901 instance=ExtResource("1_2s4ok")]
+script = ExtResource("2_xqqjy")
+
+[node name="Soil" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="0" unique_id=1761822022]
+texture_repeat = 2
+texture = ExtResource("2_qvsb0")
+region_enabled = true
+region_rect = Rect2(-28610.527, -18572.047, 60404, 41052.176)
+
+[node name="DarkSoil" type="TileMapLayer" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="1" unique_id=286999234]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD8////AQABAAIAAAD7////AQABAAIAAAD6////AQABAAIAAAD5////AQABAAIAAAD4////AQABAAIAAAD3////AQABAAIAAAD2////AQABAAIAAAD1////AQABAAIAAAAGAP//AQAAAAIAAAAGAP7/AQAAAAEAAAAGAP3/AQAAAAEAAAAGAPz/AQAAAAEAAAAGAPv/AQAAAAEAAAAHAP//AQABAAIAAAAIAP//AQABAAIAAAAJAP//AQABAAIAAAAKAP//AQABAAIAAAALAP//AQABAAIAAAAMAP//AQABAAIAAAANAAAAAQAAAAEAAAANAAEAAQAAAAEAAAANAAIAAQAAAAEAAAANAAMAAQAAAAEAAAANAAQAAQAAAAEAAAD0////AQABAAIAAADz////AQABAAIAAADy////AQAAAAIAAADy//7/AQAAAAEAAADy//3/AQAAAAEAAADy//z/AQAAAAEAAADy//v/AQAAAAEAAADy//r/AQAAAAEAAADy//n/AAAAAAIAAADy//j/AAAAAAIAAAAGAPr/AQAAAAEAAAAGAPn/AQAAAAEAAAAGAPj/AQAAAAEAAAD9////AQABAAIAAAD9//7/AQABAAEAAAD9//3/AQABAAEAAAD8//3/AQABAAEAAAD7//3/AQABAAEAAAD6//3/AQABAAEAAAD5//3/AQABAAEAAAD4//3/AQABAAEAAAD3//3/AQABAAEAAAD2//3/AQABAAEAAAD1//3/AQABAAEAAAD0//3/AQABAAEAAAD0//7/AQABAAEAAADz//7/AQABAAEAAAD1//7/AQABAAEAAAD2//7/AQABAAEAAAD3//7/AQABAAEAAAD4//7/AQABAAEAAAD5//7/AQABAAEAAAD6//7/AQABAAEAAAD7//7/AQABAAEAAAD8//7/AQABAAEAAADz//3/AQABAAEAAADz//r/AQABAAEAAAD0//r/AQABAAEAAAD1//r/AQABAAEAAAD2//r/AQABAAEAAAD3//r/AQABAAEAAAD4//r/AQABAAEAAAD5//r/AQABAAEAAAD5//v/AQABAAEAAAD6//v/AQABAAEAAAD7//v/AQABAAEAAAD8//v/AQABAAEAAAD8//r/AQABAAEAAAD7//r/AQABAAEAAAD6//r/AQABAAEAAAD4//v/AQABAAEAAAD4//z/AQABAAEAAAD3//z/AQABAAEAAAD2//z/AQABAAEAAAD1//z/AQABAAEAAAD1//v/AQABAAEAAAD0//v/AQABAAEAAAD0//z/AQABAAEAAADz//z/AQABAAEAAADz//v/AQABAAEAAAD2//v/AQABAAEAAAD3//v/AQABAAEAAAD5//z/AQABAAEAAAD6//z/AQABAAEAAAD7//z/AQABAAEAAAD8//z/AQABAAEAAAD9//z/AQABAAEAAAD9//v/AQABAAEAAAD9//r/AQABAAEAAAAHAPz/AQABAAEAAAAHAP3/AQABAAEAAAAHAP7/AQABAAEAAAAIAPz/AQABAAEAAAAIAP3/AQABAAEAAAAIAP7/AQABAAEAAAAHAPr/AQABAAEAAAAHAPv/AQABAAEAAAAIAPr/AQABAAEAAAAIAPv/AQABAAEAAAAJAPr/AQABAAEAAAAJAPv/AQABAAEAAAAJAPz/AQABAAEAAAAJAP3/AQABAAEAAAAJAP7/AQABAAEAAAAKAPr/AQABAAEAAAAKAPv/AQABAAEAAAAKAPz/AQABAAEAAAAKAP3/AQABAAEAAAAKAP7/AQABAAEAAAALAPr/AQABAAEAAAALAPv/AQABAAEAAAALAPz/AQABAAEAAAALAP3/AQABAAEAAAALAP7/AQABAAEAAAAMAPr/AQABAAEAAAAMAPv/AQABAAEAAAAMAPz/AQABAAEAAAAMAP3/AQABAAEAAAAMAP7/AQABAAEAAAANAPr/AQABAAEAAAANAPv/AQABAAEAAAANAPz/AQABAAEAAAANAP3/AQABAAEAAAANAP7/AQABAAEAAAANAP//AQABAAEAAAAHAPj/AQABAAEAAAAHAPn/AQABAAEAAAAIAPj/AQABAAEAAAAIAPn/AQABAAEAAAAJAPj/AQABAAEAAAAJAPn/AQABAAEAAAAKAPj/AQABAAEAAAAKAPn/AQABAAEAAAALAPj/AQABAAEAAAALAPn/AQABAAEAAAAMAPj/AQABAAEAAAAMAPn/AQABAAEAAAANAPj/AQABAAEAAAANAPn/AQABAAEAAAAOAPj/AQABAAEAAAAOAPn/AQABAAEAAAAOAPr/AQABAAEAAAAOAPv/AQABAAEAAAAOAPz/AQABAAEAAAAOAP3/AQABAAEAAAAOAP7/AQABAAEAAAAPAPj/AQABAAEAAAAPAPn/AQABAAEAAAAPAPr/AQABAAEAAAAPAPv/AQABAAEAAAAPAPz/AQABAAEAAAAPAP3/AQABAAEAAAAPAP7/AQABAAEAAAAQAPj/AQABAAEAAAAQAPn/AQABAAEAAAAQAPr/AQABAAEAAAAQAPv/AQABAAEAAAAQAPz/AQABAAEAAAAQAP3/AQABAAEAAAAQAP7/AQABAAEAAAARAPj/AQABAAEAAAARAPn/AQABAAEAAAARAPr/AQABAAEAAAARAPv/AQABAAEAAAARAPz/AQABAAEAAAARAP3/AQABAAEAAAARAP7/AQABAAEAAAASAPj/AQABAAEAAAASAPn/AQABAAEAAAASAPr/AQABAAEAAAASAPv/AQABAAEAAAASAPz/AQABAAEAAAASAP3/AQABAAEAAAASAP7/AQABAAEAAAATAPj/AQABAAEAAAATAPn/AQABAAEAAAATAPr/AQABAAEAAAATAPv/AQABAAEAAAATAPz/AQABAAEAAAATAP3/AQABAAEAAAATAP7/AQABAAEAAAAUAPj/AQABAAEAAAAUAPn/AQABAAEAAAAUAPr/AQABAAEAAAAUAPv/AQABAAEAAAAUAPz/AQABAAEAAAAUAP3/AQABAAEAAAAUAP7/AQABAAEAAAAVAPj/AQABAAEAAAAVAPn/AQABAAEAAAAVAPr/AQABAAEAAAAVAPv/AQABAAEAAAAVAPz/AQABAAEAAAAVAP3/AQABAAEAAAAVAP7/AQABAAEAAAAWAPj/AQABAAEAAAAWAPn/AQABAAEAAAAWAPr/AQABAAEAAAAWAPv/AQABAAEAAAAWAPz/AQABAAEAAAAWAP3/AQABAAEAAAAWAP7/AQABAAEAAAAOAP//AQABAAEAAAAOAAAAAQABAAEAAAAOAAEAAQABAAEAAAAOAAIAAQABAAEAAAAOAAMAAQABAAEAAAAOAAQAAQABAAEAAAAPAP//AQABAAEAAAAPAAAAAQABAAEAAAAPAAEAAQABAAEAAAAPAAIAAQABAAEAAAAPAAMAAQABAAEAAAAPAAQAAQABAAEAAAAQAP//AQABAAEAAAAQAAAAAQABAAEAAAAQAAEAAQABAAEAAAAQAAIAAQABAAEAAAAQAAMAAQABAAEAAAAQAAQAAQABAAEAAAARAP//AQABAAEAAAARAAAAAQABAAEAAAARAAEAAQABAAEAAAARAAIAAQABAAEAAAARAAMAAQABAAEAAAARAAQAAQABAAEAAAASAP//AQABAAEAAAASAAAAAQABAAEAAAASAAEAAQABAAEAAAASAAIAAQABAAEAAAASAAMAAQABAAEAAAASAAQAAQABAAEAAAATAP//AQABAAEAAAATAAAAAQABAAEAAAATAAEAAQABAAEAAAATAAIAAQABAAEAAAATAAMAAQABAAEAAAATAAQAAQABAAEAAAAUAP//AQABAAEAAAAUAAAAAQABAAEAAAAUAAEAAQABAAEAAAAUAAIAAQABAAEAAAAUAAMAAQABAAEAAAAUAAQAAQABAAEAAAAVAP//AQABAAEAAAAVAAAAAQABAAEAAAAVAAEAAQABAAEAAAAVAAIAAQABAAEAAAAVAAMAAQABAAEAAAAVAAQAAQABAAEAAAAWAP//AQABAAEAAAAWAAAAAQABAAEAAAAWAAEAAQABAAEAAAAWAAIAAQABAAEAAAAWAAMAAQABAAEAAAAWAAQAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_vkmey")
+
+[node name="Walls" type="TileMapLayer" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="2" unique_id=1471155214]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD8////AAACAAAAAAD7////AAABAAAAAAD6////AAABAAAAAAD5////AAABAAAAAAD4////AAABAAAAAAD3////AAABAAAAAAD2////AAABAAAAAAD1////AAABAAAAAAAGAP//AAABAAIAAAAGAP7/AAAAAAIAAAAGAP3/AAAAAAIAAAAGAPz/AAAAAAIAAAAGAPv/AAAAAAIAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAABAAAAAAAKAP//AAABAAAAAAALAP//AAABAAAAAAAMAP//AAABAAAAAAANAP//AAACAAEAAAANAAAAAAAAAAIAAAANAAEAAAAAAAIAAAANAAIAAAAAAAIAAAANAAMAAAAAAAIAAAANAAQAAAAAAAIAAAD0////AAABAAAAAADz////AAABAAAAAADy////AAABAAIAAADy//7/AAAAAAIAAADy//3/AAAAAAIAAADy//z/AAAAAAIAAADy//v/AAAAAAIAAADy//r/AAAAAAIAAADy//n/AAAAAAIAAADy//j/AAAAAAIAAAAGAPr/AAAAAAIAAAAGAPn/AAAAAAIAAAAGAPj/AAAAAAIAAAANAAUAAQAAAAEAAAANAAYAAQAAAAEAAAANAAcAAQAAAAEAAAANAAgAAQAAAAEAAAANAAkAAQAAAAEAAAAOAAUAAQABAAEAAAAOAAYAAQABAAEAAAAOAAcAAQABAAEAAAAOAAgAAQABAAEAAAAOAAkAAQABAAEAAAAPAAUAAQABAAEAAAAPAAYAAQABAAEAAAAPAAcAAQABAAEAAAAPAAgAAQABAAEAAAAPAAkAAQABAAEAAAAQAAUAAQABAAEAAAAQAAYAAQABAAEAAAAQAAcAAQABAAEAAAAQAAgAAQABAAEAAAAQAAkAAQABAAEAAAARAAUAAQABAAEAAAARAAYAAQABAAEAAAARAAcAAQABAAEAAAARAAgAAQABAAEAAAARAAkAAQABAAEAAAASAAUAAQABAAEAAAASAAYAAQABAAEAAAASAAcAAQABAAEAAAASAAgAAQABAAEAAAASAAkAAQABAAEAAAATAAUAAQABAAEAAAATAAYAAQABAAEAAAATAAcAAQABAAEAAAATAAgAAQABAAEAAAATAAkAAQABAAEAAAAUAAUAAQABAAEAAAAUAAYAAQABAAEAAAAUAAcAAQABAAEAAAAUAAgAAQABAAEAAAAUAAkAAQABAAEAAAAVAAUAAQABAAEAAAAVAAYAAQABAAEAAAAVAAcAAQABAAEAAAAVAAgAAQABAAEAAAAVAAkAAQABAAEAAAAWAAUAAQABAAEAAAAWAAYAAQABAAEAAAAWAAcAAQABAAEAAAAWAAgAAQABAAEAAAAWAAkAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_vkmey")
+
+[node name="Decoration" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="3" unique_id=268466240]
+modulate = Color(0.8784314, 0.96862745, 0.7372549, 1)
+position = Vector2(-674, 1020)
+texture = ExtResource("5_x30qc")
+
+[node name="Moss1" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="4" unique_id=166951649]
+position = Vector2(1530, 972)
+texture = ExtResource("6_uaeil")
+
+[node name="Moss3" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="5" unique_id=1277099027]
+position = Vector2(2184, 1495)
+texture = ExtResource("7_bjulg")
+
+[node name="Moss6" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="6" unique_id=2005814160]
+position = Vector2(5093, -20)
+texture = ExtResource("7_bjulg")
+
+[node name="Moss5" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="7" unique_id=1607649209]
+position = Vector2(1091, 1816)
+texture = ExtResource("8_gd7nx")
+
+[node name="Moss4" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="8" unique_id=1199377144]
+position = Vector2(2558, 1151)
+texture = ExtResource("9_4lnny")
+
+[node name="Moss7" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="9" unique_id=1725584946]
+position = Vector2(3577, -60)
+texture = ExtResource("9_4lnny")
+
+[node name="Moss8" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="10" unique_id=1439856186]
+position = Vector2(2636.7876, 2450.2246)
+rotation = -1.2421929
+texture = ExtResource("8_gd7nx")
+
+[node name="Moss9" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="11" unique_id=1339485688]
+position = Vector2(4103.7876, 1785.2247)
+rotation = -2.0594954
+texture = ExtResource("9_4lnny")
+
+[node name="Moss10" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="12" unique_id=1237819261]
+position = Vector2(5122.7876, 574.22473)
+rotation = -1.2421929
+texture = ExtResource("9_4lnny")
+
+[node name="House" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="13" unique_id=1966641197 instance=ExtResource("10_cnio0")]
+position = Vector2(-383.00012, 2786)
+rotation = -2.3518395
+
+[node name="SteamVent" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="14" unique_id=642632847 instance=ExtResource("11_6u4a0")]
+position = Vector2(-40, 485)
+
+[node name="LightFanAnimation" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="15" unique_id=756544006 instance=ExtResource("12_oe17f")]
+position = Vector2(-854, 1103)
+autoplay = "default"
+frame_progress = 0.21390705
+
+[node name="Gate" parent="." index="1" unique_id=533559195 instance=ExtResource("2_x73sx")]
+
+[node name="Toilet" parent="." index="4" unique_id=1497348342 instance=ExtResource("15_ex6t8")]
+position = Vector2(953, 559)
+
+[node name="Crate" parent="." index="5" unique_id=611567519 instance=ExtResource("16_x30qc")]
+position = Vector2(638, 911)
+
+[connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
