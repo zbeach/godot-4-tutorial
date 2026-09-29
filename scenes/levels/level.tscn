@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7k048776ywi8"]
 
 [ext_resource type="Script" uid="uid://cyl8os4e0cxua" path="res://scenes/levels/level.gd" id="1_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://byd0i3qd1soxd" path="res://scenes/user_interface/ui.tscn" id="3_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://k74m77hbeb2d" path="res://scenes/player.tscn" id="4_xb4v1"]
 
 [node name="Level" type="Node2D" unique_id=1522788901]
@@ -14,6 +15,8 @@ script = ExtResource("1_b2cq8")
 position = Vector2(571, 569)
 
 [node name="Lights" type="Node2D" parent="." unique_id=106342385]
+
+[node name="UI" parent="." unique_id=1262667050 instance=ExtResource("3_b2cq8")]
 
 [connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]

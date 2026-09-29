@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://c430qbwqqu3xo" path="res://scenes/levels/house.tres" id="2_b1uqu"]
 [ext_resource type="Texture2D" uid="uid://fpl01g2goll4" path="res://graphics/ground/dirt.png" id="2_n4crx"]
 [ext_resource type="Script" uid="uid://bxi2g5eyek3ml" path="res://scenes/levels/inside.gd" id="2_tkhku"]
+[ext_resource type="PackedScene" uid="uid://dodmoqtsgy0gv" path="res://scenes/levels/outside.tscn" id="3_7r4nv"]
 [ext_resource type="PackedScene" uid="uid://ce2rvnx8cosr4" path="res://scenes/objects/simple_light.tscn" id="4_6serm"]
 [ext_resource type="PackedScene" uid="uid://dgsj53kalur3n" path="res://scenes/objects/light_fan_animation.tscn" id="4_71x7e"]
 [ext_resource type="Texture2D" uid="uid://jtrf5upmadjy" path="res://graphics/lights/overlays/infrastructure.png" id="5_086xj"]
@@ -13,10 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://bgn27ekpw0em2" path="res://graphics/lights/overlays/lattice.png" id="7_6serm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kuad"]
-size = Vector2(374, 1119)
+size = Vector2(149, 1119)
 
 [node name="Inside" unique_id=1522788901 instance=ExtResource("1_8ht0b")]
 script = ExtResource("2_tkhku")
+outside_level_scene = ExtResource("3_7r4nv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1557640071) index="0" unique_id=1429830223]
 texture_repeat = 2
@@ -178,7 +180,7 @@ blend_mode = 1
 [node name="ExitGateArea" type="Area2D" parent="." index="5" unique_id=1580723198]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0" unique_id=1973376115]
-position = Vector2(5541, -2146.5)
+position = Vector2(5653.5, -2146.5)
 shape = SubResource("RectangleShape2D_0kuad")
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]

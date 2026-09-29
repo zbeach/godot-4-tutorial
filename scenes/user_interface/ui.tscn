@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://byd0i3qd1soxd"]
+
+[ext_resource type="Script" uid="uid://vm6om4oq33lu" path="res://scenes/user_interface/ui.gd" id="1_5lvy2"]
+[ext_resource type="Texture2D" uid="uid://c011150mcekrg" path="res://graphics/ui/bullet.png" id="1_b27rl"]
+[ext_resource type="PackedScene" uid="uid://dplikld4etgml" path="res://scenes/user_interface/counter.tscn" id="1_ppfub"]
+[ext_resource type="Texture2D" uid="uid://chxokoi5gj10u" path="res://graphics/ui/grenade.png" id="2_3wnis"]
+[ext_resource type="Texture2D" uid="uid://b3fgm0qm1n1j1" path="res://graphics/ui/progress_bar/bg.png" id="4_r4i4l"]
+[ext_resource type="Texture2D" uid="uid://vps4iyis8asy" path="res://graphics/ui/progress_bar/progress.png" id="5_5lvy2"]
+
+[node name="UI" type="CanvasLayer" unique_id=1262667050]
+script = ExtResource("1_5lvy2")
+
+[node name="Health" type="MarginContainer" parent="." unique_id=219100560]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Health" unique_id=1161340506]
+layout_mode = 2
+value = 50.0
+texture_under = ExtResource("4_r4i4l")
+texture_progress = ExtResource("5_5lvy2")
+
+[node name="Counters" type="MarginContainer" parent="." unique_id=2107674532]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -82.0
+offset_right = 119.0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Counters" unique_id=910888285]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Laser" parent="Counters/HBoxContainer" unique_id=1491346805 instance=ExtResource("1_ppfub")]
+layout_mode = 2
+count = 20
+icon_texture = ExtResource("1_b27rl")
+
+[node name="Grenade" parent="Counters/HBoxContainer" unique_id=2063974208 instance=ExtResource("1_ppfub")]
+layout_mode = 2
+count = 10
+icon_texture = ExtResource("2_3wnis")

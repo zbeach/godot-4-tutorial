@@ -40,12 +40,13 @@ func _handle_grenade_action() -> void:
 	)
 	
 func _handle_projectile_actions() -> void:
-	if Input.is_action_pressed("primary action") and can_laser:
+	if Input.is_action_pressed("primary action") and can_laser and Globals.laser_count > 0:
+		Globals.laser_count -= 1
 		_handle_laser_action()
 	
-	if Input.is_action_pressed("secondary action") and can_grenade:
+	if Input.is_action_pressed("secondary action") and can_grenade and Globals.grenade_count > 0:
+		Globals.grenade_count -= 1
 		_handle_grenade_action()
-		
 
 func _process(_delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
