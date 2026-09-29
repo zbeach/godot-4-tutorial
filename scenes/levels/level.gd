@@ -11,6 +11,9 @@ var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn"
 func _ready() -> void:
 	laser_counter.set_count(Globals.laser_count)
 	grenade_counter.set_count(Globals.grenade_count)
+	
+	Globals.laser_count_changed.connect(laser_counter.set_count)
+	Globals.grenade_count_changed.connect(grenade_counter.set_count)
 
 func _on_player_projectile(projectile: CollisionObject2D, pos: Vector2) -> void:
 	projectile.position = pos
@@ -20,13 +23,11 @@ func _on_player_laser(pos: Vector2, direction: Vector2) -> void:
 	var laser = laser_scene.instantiate() as Area2D
 	laser.direction = direction
 	laser.rotation_degrees = rad_to_deg(laser.direction.angle()) + 90
-	laser_counter.set_count(Globals.laser_count)
 	_on_player_projectile(laser, pos)
 	
 func _on_player_grenade(pos: Vector2, direction: Vector2) -> void:
 	var grenade = grenade_scene.instantiate() as RigidBody2D
 	grenade.linear_velocity = direction * grenade.speed
-	grenade_counter.set_count(Globals.grenade_count)
 	_on_player_projectile(grenade, pos)
 
 func _on_house_player_entered() -> void:
