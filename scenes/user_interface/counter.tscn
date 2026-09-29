@@ -17,6 +17,7 @@ text = "40"
 horizontal_alignment = 1
 
 [node name="Icon" type="TextureRect" parent="." unique_id=415063746]
+custom_minimum_size = Vector2(39, 39)
 layout_mode = 2
 texture = ExtResource("2_alra6")
 expand_mode = 4
