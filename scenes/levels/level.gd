@@ -9,11 +9,11 @@ var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn"
 
 
 func _ready() -> void:
-	laser_counter.update(Globals.laser_count)
-	grenade_counter.update(Globals.grenade_count)
-	
 	Globals.laser_count_changed.connect(laser_counter.update)
 	Globals.grenade_count_changed.connect(grenade_counter.update)
+	
+	laser_counter.update(Globals.laser_count)
+	grenade_counter.update(Globals.grenade_count)
 
 func _on_player_projectile(projectile: CollisionObject2D, pos: Vector2) -> void:
 	projectile.position = pos
