@@ -63,3 +63,11 @@ func _on_laser_timer_timeout() -> void:
 
 func _on_grenade_timer_timeout() -> void:
 	can_grenade = true
+
+func add_item(type: String) -> void:
+	match type:
+		'laser':
+			Globals.laser_count += 5
+		'grenade':
+			Globals.grenade_count += 1
+	
