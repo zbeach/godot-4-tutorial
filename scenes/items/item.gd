@@ -17,5 +17,11 @@ func _process(delta):
 	rotation += ROTATION_SPEED * delta
 
 func _on_body_entered(body: Node2D) -> void:
-	body.add_item(type)
+	match type:
+		'laser':
+			Globals.laser_count += 5
+		'grenade':
+			Globals.grenade_count += 1
+		'health':
+			Globals.health += 10
 	queue_free()
