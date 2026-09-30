@@ -1,19 +1,8 @@
 extends Node2D
 class_name LevelParent
 
-@onready var laser_counter: Counter = $UI/Counters/HBoxContainer/Laser
-@onready var grenade_counter: Counter = $UI/Counters/HBoxContainer/Grenade
-
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
-
-
-func _ready() -> void:
-	Globals.laser_count_changed.connect(laser_counter.update)
-	Globals.grenade_count_changed.connect(grenade_counter.update)
-	
-	laser_counter.update(Globals.laser_count)
-	grenade_counter.update(Globals.grenade_count)
 
 func _on_player_projectile(projectile: CollisionObject2D, pos: Vector2) -> void:
 	projectile.position = pos

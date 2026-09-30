@@ -16,7 +16,6 @@ func _ready():
 func _process(delta):
 	rotation += ROTATION_SPEED * delta
 
-
 func _on_body_entered(body: Node2D) -> void:
 	body.add_item(type)
 	queue_free()

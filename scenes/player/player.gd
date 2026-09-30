@@ -70,4 +70,6 @@ func add_item(type: String) -> void:
 			Globals.laser_count += 5
 		'grenade':
 			Globals.grenade_count += 1
+		'health':
+			Globals.health += 10
 	
